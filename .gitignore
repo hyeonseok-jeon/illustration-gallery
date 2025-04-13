@@ -39,3 +39,11 @@ yarn-error.log*
 # typescript
 *.tsbuildinfo
 next-env.d.ts
+
+# local system directories
+AppData/
+.vscode/
+.arduinoIDE/
+.p2/
+.cache/
+*.log
