@@ -7,7 +7,6 @@ const illustrations = [
   "ascii",
   "/illustrations/art2.jpg",
   "/illustrations/art3.jpg",
-  "/illustrations/art4.jpg",
 ];
 
 function AsciiScene() {
