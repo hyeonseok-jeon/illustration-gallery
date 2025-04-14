@@ -1,24 +1,19 @@
 'use client';
 
-import { useEffect, useState } from "react";
+import { useEffect, useState } from 'react';
 
 const illustrations = [
-  "/illustrations/art1.jpg",
-  "ascii",
-  "/illustrations/art2.jpg",
-  "/illustrations/art3.jpg",
+  '/illustrations/art1.jpg',
+  'ascii',
+  '/illustrations/art2.jpg',
+  '/illustrations/art3.jpg',
 ];
 
 function AsciiScene() {
-  const [output, setOutput] = useState("");
+  const [output, setOutput] = useState('');
 
   const asciiArt = `
-                                                                                                                                                                                                       
-                                                                                                                                                                                                        
-                                                                                                       ,%%*                           ,#%,                                                              
-                                                                                                 &%                                          @                                                          
-                                                                                            (#                                                     ./&#,                                                
-                                                                                        *%                                                                   %@,                                        
+                                                                                         *%                                                                   %@,                                        
                                                                        /&#,     .*/(#%                                                         */*.                 ,%#                                 
                                                                 (@  #@#         @                                                                        ,&&@/             (@                           
                                                            %&&*             %,          %%     #.             %                                             %      ,%#,         /#                      
@@ -128,9 +123,10 @@ function AsciiScene() {
                      .&,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,////////////////@                                                    /            *,.@  /&
                        %/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,/////////////////                                                     (           @    @  @
                            %/,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,,*////////////////&                                                      &   @   &.   .@*   *
+
 `;
 
-  const step = 10;
+  const step = 30;
   const delay = 1;
 
   useEffect(() => {
@@ -144,19 +140,20 @@ function AsciiScene() {
   }, []);
 
   return (
-    <div className="flex items-center justify-center w-full h-full overflow-auto px-2">
-      <pre
-        className="text-green-500 font-mono whitespace-pre-wrap text-center"
-        style={{
-          fontSize: "5px",           // 약간 작게
-          lineHeight: "1.1",         // 줄 간격도 압축
-          maxWidth: "100%",
-          maxHeight: "100%",
-          overflow: "hidden",
-        }}
-      >
-        {output}
-      </pre>
+    <div className="w-screen h-screen bg-black overflow-hidden flex items-center justify-center p-0 m-0">
+      <div className="w-full h-full overflow-hidden flex items-center justify-center">
+        <pre
+          className="text-green-500 font-mono whitespace-pre leading-none"
+          style={{
+            fontSize: '5px',
+            lineHeight: '1.35',
+            margin: 0,
+            padding: 0,
+          }}
+        >
+          {output}
+        </pre>
+      </div>
     </div>
   );
 }
@@ -170,16 +167,16 @@ export default function IllustrationGallery() {
 
   return (
     <div
-      className="min-h-screen flex items-center justify-center bg-black p-0 m-0 cursor-pointer"
+      className="w-screen h-screen bg-black overflow-hidden cursor-pointer"
       onClick={handleNext}
     >
-      {illustrations[index] === "ascii" ? (
+      {illustrations[index] === 'ascii' ? (
         <AsciiScene />
       ) : (
         <img
           src={illustrations[index]}
           alt={`Illustration ${index + 1}`}
-          className="w-full h-auto max-h-[90vh] max-w-[90vw] object-contain"
+          className="w-full h-full object-contain"
         />
       )}
     </div>
